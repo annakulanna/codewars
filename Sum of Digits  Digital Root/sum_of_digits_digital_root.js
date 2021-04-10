@@ -1,15 +1,13 @@
 function digital_root(n) {
-    
-    let sum = 0
-    do{
-       sum = 0
-       const ar = n.toString().split('')
-       for(let i=0; i< ar.length; i++){
-         sum += parseInt(ar[i], 10);
-       }
-       n = sum
-       //console.log(n)    
-    }while(n >= 10)
-      
-    return sum;
+  let arrayNumber = n.toString().split('')
+  n = 0
+
+  for(let i = 0; i < arrayNumber.length; i++){
+    n += Number(arrayNumber[i])
+  }
+
+  if(n > 9){
+    return digital_root(n)
+  } else return n
+
 }
